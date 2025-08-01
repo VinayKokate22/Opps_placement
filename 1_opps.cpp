@@ -17,6 +17,8 @@ class Complex// not same as complex the letter casing matters
     // the static variable is allocated memory once at the start of the program and is destroyed at the end of the program 
     // when a object is created then it does not create the memory for c, it only has the copy of a,b hence object size is 4byte 
     // therefore for a object c1 there exist no variable c
+    // but all the objects can access the static member variable c but all the objects are linked to the same c variable
+    // so if you change the value of c in one object then it will change for all
     // c ( class variable ) is only assigned memory once but you have to define it outside the class
     
     public: 
@@ -24,9 +26,9 @@ class Complex// not same as complex the letter casing matters
         //  it makes two constructer 1) Default Constructer
                                 //   2) Copy Constructer
     // but if you have defined  it then it wont make its own Default Constructer
-    // bur if we have make our own Copy Constucter then it will not make its own Copy Constructer
+    // also if we have make our own Copy Constucter then it will not make its own Copy Constructer
 
-    static int vinay;
+    static int vinay;// this is in public section so it can be accessed by any object
     Complex(){ // it is an object member function so can use static over here
         // it has no return type
         // when a object is created then the constructer is called
@@ -72,7 +74,6 @@ class Complex// not same as complex the letter casing matters
         return temp;
     }
 
-
     ~Complex(){ // destructor is an instance member function 
         // destructor can never be static 
         // no argument in destrucor hence no overloading possible in destructor
@@ -92,7 +93,6 @@ int Complex::c = 0; // c is a class variable (static) and here it gets the memor
 int Complex::vinay=0;
 void Complex :: set_data(int a,int b){// have to give different name from the class variable
     // but using this keyword the function know which object is performing the operation 
-
     this->a=a;
     this->b=b;
 }
@@ -106,6 +106,7 @@ int main(){
     c1.assign_data(30); // object can also access the static member variable
     // every object acces the same static member variable
     c1.vinay=3; // vinay is public static memeber variable 
+    cout<<c1.vinay<<endl; 
     Complex c3=c1.add(c2);
     c3.show_data();
 
