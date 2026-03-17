@@ -6,7 +6,7 @@ void funtion_to_explain_static_variable(){
     static int a;// this is a staic local variable not static member variable 
     int b;
     // b has garbage value whereas a is assigned to 0;
-    // the variable b will get the memory in the function and will be distoryed at the end of this function
+    // the variable b will get the memory in the function and will be destoryed at the end of this function
     // where as a will get the memory at the start of the program and will be destroyed at the end of the main program;
 }
 class Complex// not same as complex the letter casing matters
@@ -29,6 +29,12 @@ class Complex// not same as complex the letter casing matters
     // also if we have make our own Copy Constucter then it will not make its own Copy Constructer
 
     static int vinay;// this is in public section so it can be accessed by any object
+
+    // ***********************************************************************************************
+    //No, a constructor cannot be declared as virtual.
+    //Since the compiler knows the precise type of object to create, there is no need for the dynamic dispatch that virtual provides. 
+    // ***********************************************************************************************
+
     Complex(){ // it is an object member function so can use static over here
         // it has no return type
         // when a object is created then the constructer is called
@@ -76,6 +82,8 @@ class Complex// not same as complex the letter casing matters
 
     ~Complex(){ // destructor is an instance member function 
         // destructor can never be static 
+        // destructor can be virtual
+        // destructor can be private (imposes certain restrictions on how objects of that class can be created and destroyed). 
         // no argument in destrucor hence no overloading possible in destructor
         /* destructor doesnot destroy the object rather it is the last function which 
             executes before the destruction of the object
