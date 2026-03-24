@@ -15,7 +15,7 @@ class Complex// not same as complex the letter casing matters
     int a,b;// this is not class variable they are object variable
     static int c;// this is a class variable (static member variable)
     // the static variable is allocated memory once at the start of the program and is destroyed at the end of the program 
-    // when a object is created then it does not create the memory for c, it only has the copy of a,b hence object size is 4byte 
+    // when a object is created then it does not create the memory for c, it only has the copy of a,b hence object size is 4byte if int has 2byte
     // therefore for a object c1 there exist no variable c
     // but all the objects can access the static member variable c but all the objects are linked to the same c variable
     // so if you change the value of c in one object then it will change for all
