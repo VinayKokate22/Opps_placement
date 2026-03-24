@@ -51,7 +51,7 @@ class Complex// not same as complex the letter casing matters
     //     b=c.b;
     // }
     Complex(const Complex &c){ // copy constructer
-        // const has a very specific purpose (discussion with aman tiwari guru )
+        // const has a very specific purpose 
         // const is needed for security so that we do not change the value of object ref whose scope is outside this
         // if you remove it then Complex c3=c1.add(c2); will give error 
         a=c.a;
